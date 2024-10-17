@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+
+function Userdata() {
+    const { id } = useParams();
+    const [user,setUser] = useState([])
+    const [category,setCategory] = useState([])
+   
+
+    useEffect(()=> {
+      console.log('test');
+      
+     const usersPromise =  axios.get("http://localhost:3000/users")
+    const categoriesPromise =  axios.get("http://localhost:3000/categories")
+      Promise.all([usersPromise,
+        categoriesPromise]).then(([usersResponce,categoriesResponce])=>{
+          // console.log();
+          const data = [];
+          usersResponce.data.forEach((user)=>{
+          const categoryName= categoriesResponce.data.find((category)=> category.id == user.category)
+          if (categoryName) {
+            data.push({...user,category:categoryName.name})
+          }else{
+            data.push({...user})
+
+          }
+          })
+          setUser(data)
+        })
+        
+    },[]);
+
+    const userdelete = async(id) => {
+      await axios.delete(`http://localhost:3000/users/${id}`).then(res => console.log(res)).catch(err => console.log(err));
+      const delet = user.filter(users => users.id !== id);
+      setUser(delet)
+    }
+
+    const setuser = () => {
+       const data = user.map((users,id) => (
+        <tr key={id}>
+      <td>{users.name}</td>
+      <td>{users.email}</td>
+      <td> {users.category} </td>
+      
+        <td>
+        <div className='d-flex gap-3'>
+            <Link className='btn text-info' to={`/edit/${users.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
+            <button className='btn text-danger' onClick={() => userdelete(users.id)}><i className="fa-solid fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+       ))
+       return data
+    }
+
+  return (
+    <>
+    {setuser()}
+    </>
+  )
+}
+
+export default Userdata

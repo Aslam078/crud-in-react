@@ -1,0 +1,125 @@
+{
+  "users": [
+    {
+      "id": "23f7",
+      "name": "jonny",
+      "email": "badiaslam78@gmail.com",
+      "category": "9048"
+    },
+    {
+      "id": "029a",
+      "name": "Aretha Meadows",
+      "email": "tyzuti@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "b4b0",
+      "name": "Tatiana Obrien",
+      "email": "xese@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "75ea",
+      "name": "Lila Sandoval",
+      "email": "califimiqo@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "8d8c",
+      "name": "Tashya Booth",
+      "email": "jalaserepa@mailinator.com",
+      "category": "bcf6",
+      "": "jalaserepa@mail.com"
+    },
+    {
+      "id": "6e42",
+      "name": "Kennan Oliver",
+      "email": "ziny@mailinator.com",
+      "category": "a7b9"
+    },
+    {
+      "id": "0901",
+      "name": "Len Serrano",
+      "email": "xumicy@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "47ae",
+      "name": "Demetrius Wallace",
+      "email": "xerumeveg@mailinator.com",
+      "category": "9048"
+    },
+    {
+      "id": "8ccd",
+      "name": "Daryl Golden",
+      "email": "zaqo@mailinator.com",
+      "category": "bcf6"
+    },
+    {
+      "id": "c9ae",
+      "name": "Illana Vance",
+      "email": "xiho@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "eb1e",
+      "name": "Drew Hill",
+      "email": "zewaco@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "230d",
+      "name": "Judah Waller",
+      "email": "zozazuval@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "e858",
+      "name": "Jack Gillespie",
+      "email": "rome@mailinator.com",
+      "category": "957a"
+    },
+    {
+      "id": "6b02",
+      "name": "Karly Clayton",
+      "email": "mizi@mailinator.com",
+      "category": "bcf6"
+    },
+    {
+      "id": "06ca",
+      "name": "Cailin Huff",
+      "email": "rozami@mailinator.com",
+      "category": "9048"
+    },
+    {
+      "id": "09db",
+      "name": "Ezekiel Walters",
+      "email": "rafadafeco@mailinator.com",
+      "category": "9048"
+    },
+    {
+      "id": "51f6",
+      "name": "Farida M parasara",
+      "email": "farida@gmail.com",
+      "category": "9048"
+    }
+  ],
+  "categories": [
+    {
+      "id": "9048",
+      "name": "cat1"
+    },
+    {
+      "id": "bcf6",
+      "name": "cat2"
+    },
+    {
+      "id": "957a",
+      "name": "cat3"
+    },
+    {
+      "id": "a7b9",
+      "name": "cat4"
+    }
+  ]
+}
