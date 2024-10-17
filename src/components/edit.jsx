@@ -24,7 +24,7 @@ function Edit() {
     }
 
     useEffect(() => {
-        axios.patch(`http://localhost:3000/users/${id}`)
+        axios.get(`http://localhost:3000/users/${id}`)
             .then(res => {
                 setUser(res.data);
                 //  setDetails(res.data);
@@ -65,11 +65,11 @@ function Edit() {
                 <form onSubmit={submithandle} className='d-flex flex-column   align-items-center mt-5'>
                     <div className="mb-3 d-flex gap-3">
                         <label >Name:</label>
-                        <input type="text" value={user.name} onChange={onchangehandle} className="form-control" />
+                        <input type="text" name='name' value={user.name} onChange={onchangehandle} className="form-control" />
                     </div>
                     <div className="mb-3 d-flex gap-3 ">
                         <label>Email:</label>
-                        <input type="email" value={user.email} onChange={onchangehandle} className="form-control" />
+                        <input type="email" name='email' value={user.email} onChange={onchangehandle} className="form-control" />
                     </div>
 
                     <div className='d-flex gap-1 mb-2'>
