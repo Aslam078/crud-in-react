@@ -3,7 +3,7 @@
     {
       "id": "23f7",
       "name": "jonny",
-      "email": "badiaslam78@gmail.com",
+      "email": "badiaslam@gmail.com",
       "category": "9048"
     },
     {
@@ -102,6 +102,12 @@
       "name": "Farida M parasara",
       "email": "farida@gmail.com",
       "category": "9048"
+    },
+    {
+      "id": "e39f",
+      "name": "Farid Parasara",
+      "email": "parasarafarid@gmail.com",
+      "category": "a7b9"
     }
   ],
   "categories": [

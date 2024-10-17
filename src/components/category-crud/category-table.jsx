@@ -15,7 +15,7 @@ function CategoryTable() {
   return (
     <div className='container'>
       <Catnavbar />
-      <table className="table">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>Category</th>
