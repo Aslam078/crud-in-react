@@ -3,6 +3,7 @@ import CatFormNav from './element/cat-formnav'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function CategoryEdit() {
     const { id } = useParams();
@@ -33,12 +34,13 @@ function CategoryEdit() {
     const handlesubmit = () => {
         dataedit();
         navigate('/CategoryTable')
+        toast.success("Category Edit successfully");
     }
 
   return (
     <div className='container'>
       <nav className='navbar bg-body-secendory px-5'>
-            <a href="#" className='navbar-brand'><h1>Edit Category</h1></a>
+            <a href="#" className='navbar-brand'><h1>Edit Category</h1></a> 
        
             <Link  to={"/CategoryTable"} className='btn btn-danger'>Home Page</Link>
      </nav>

@@ -14,7 +14,7 @@ function App() {
   
   return (
     <>
-    <Router >
+    <Router>
       <Routes>
       <Route exact path='/' element={<Table /> } />
       <Route exact path='/form' element={<Form />} />

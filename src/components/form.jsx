@@ -4,6 +4,7 @@ import FormNav from './element/formnav'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Category from './category';
+import { Bounce, toast } from 'react-toastify';
 
 function Form() {
   const navigate = useNavigate();
@@ -34,12 +35,21 @@ function Form() {
   })
       // Handle the response from backend here
       .then((res) => {
-        alert("data stored success");
+        toast.info('Data Store Succesfully', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
       })
 
       // Catch errors if any
       .catch((err) => {});
-
       navigate('/');
 
   }
@@ -62,12 +72,12 @@ function Form() {
           <div className='d-flex gap-1 mb-2'>
 
           <label >Category: </label>
-            <select
+            <select className='w-100 text-center'
             onChange={onchangehandle}
             value={details.category}
             name='category'>
 
-              <option>---Options---</option>
+              <option>Options</option>
               <Category />
             
             </select>

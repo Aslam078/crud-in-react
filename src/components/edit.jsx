@@ -4,8 +4,10 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Category from './category';
+import { toast } from 'react-toastify';
 
 function Edit() {
     const navigate = useNavigate();
@@ -55,12 +57,17 @@ function Edit() {
         console.log("edit username", user);
         EditData();
         navigate('/')
+        toast.success("data stored success");
 
-    }
+    } 
 
     return (
         <div className='container'>
-            <FormNav />
+            <nav className='navbar bg-body-secendory px-5'>
+            <a href="#" className='navbar-brand'><h1>Edit User</h1></a>
+       
+            <Link  to={"/"} className='btn btn-danger'>Home Page</Link>
+        </nav>
             <div className='d-flex justify-content-center  align-items-center'>
                 <form onSubmit={submithandle} className='d-flex flex-column   align-items-center mt-5'>
                     <div className="mb-3 d-flex gap-3">
@@ -72,10 +79,10 @@ function Edit() {
                         <input type="email" name='email' value={user.email} onChange={onchangehandle} className="form-control" />
                     </div>
 
-                    <div className='d-flex gap-1 mb-2'>
+                    <div className='d-flex gap-1 mb-2 w-100'>
 
                         <label >Category: </label>
-                        <select
+                        <select className='w-100 text-center'
                         onChange={onchangehandle}
                             name='category'
                             value={user.category}>

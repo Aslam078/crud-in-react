@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { toast,Bounce } from 'react-toastify';
 
 function Userdata() {
     const { id } = useParams();
@@ -32,11 +33,25 @@ function Userdata() {
         
     },[]);
 
+
     const userdelete = async(id) => {
       await axios.delete(`http://localhost:3000/users/${id}`).then(res => console.log(res)).catch(err => console.log(err));
       const delet = user.filter(users => users.id !== id);
       setUser(delet)
-    }
+        toast.error('user deleted', {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+        }
+      
+    
 
     const setuser = () => {
        const data = user.map((users,id) => (

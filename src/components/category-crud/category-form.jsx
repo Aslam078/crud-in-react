@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import CatFormNav from './element/cat-formnav';
 import axios from 'axios';
+import { Bounce, toast } from 'react-toastify';
 
 function CategoryForm() {
     const [category, setCategory] = useState([])
@@ -26,7 +27,19 @@ function CategoryForm() {
       })
           // Handle the response from backend here
           .then((res) => {
-            alert("data stored success");
+            // alert("data stored success");
+            toast.info('Category Store Succesfully', {
+              position: "top-left",
+              autoClose: 5000,
+              icon: false,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+              });
           })
     
           // Catch errors if any
