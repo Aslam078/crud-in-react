@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import FormNav from './element/formnav'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Category from './category';
 import { Bounce, toast } from 'react-toastify';
 
 function Form() {
   const navigate = useNavigate();
+  // const {email} = useParams()
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -24,9 +25,41 @@ function Form() {
   }
   
 
-  const submithandle = (e) => {
+  const checkEmailExists = async (email) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/users?email=${email}`);
+      console.log("respone =====".response);
+      return response
+      
+    } catch (error) {
+      console.error("Error checking email:", error);
+      return false;
+    }
+  };
+
+  // console.log("email========>",details.email);
+
+
+
+  const submithandle = async(e) => {
     e.preventDefault()
     console.log(details);
+
+    const emailExists = await checkEmailExists(details.email);
+      if (emailExists) {
+        toast.warn('Email is already in use', {
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        return;
+      }
     
     axios({
       url: "http://localhost:3000/users",
@@ -51,7 +84,6 @@ function Form() {
       // Catch errors if any
       .catch((err) => {});
       navigate('/');
-
   }
 
   return (
