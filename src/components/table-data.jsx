@@ -43,7 +43,7 @@ function Userdata() {
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
           theme: "light",
@@ -56,9 +56,12 @@ function Userdata() {
     const setuser = () => {
        const data = user.map((users,id) => (
         <tr key={id}>
+      <td><img src={users.image} alt="userimage" className='rounded-circle' width={'50px'} height={'50px'} /></td>
       <td>{users.name}</td>
       <td>{users.email}</td>
       <td> {users.category} </td>
+      <td> {users.option} </td>
+      <td> {users.radio} </td>
       
         <td>
         <div className='d-flex gap-3'>

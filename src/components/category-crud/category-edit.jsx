@@ -34,7 +34,17 @@ function CategoryEdit() {
     const handlesubmit = () => {
         dataedit();
         navigate('/CategoryTable')
-        toast.success("Category Edit successfully");
+        toast.success("Category Edit successfully",{
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
     }
 
   return (

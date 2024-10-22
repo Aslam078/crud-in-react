@@ -4,91 +4,27 @@
       "id": "23f7",
       "name": "aslam",
       "email": "badiaslam@gmail.com",
-      "category": "9048"
+      "category": "9048",
+      "option": "bike",
+      "radio": "active"
     },
     {
-      "id": "029a",
-      "name": "Aretha Meadows",
-      "email": "tyzuti@mailinator.com",
-      "category": "957a"
+      "id": "245a",
+      "name": "Zane Hodge",
+      "email": "gagudope@mailinator.com",
+      "category": "4f22",
+      "radio": "active",
+      "option": "boat",
+      "image": "https://cdn.prod.website-files.com/62d84e447b4f9e7263d31e94/6399a4d27711a5ad2c9bf5cd_ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
     },
     {
-      "id": "47ae",
-      "name": "Demetrius Wallace",
-      "email": "xerumeveg@mailinator.com",
-      "category": "9048"
-    },
-    {
-      "id": "c9ae",
-      "name": "Illana Vance",
-      "email": "xiho@mailinator.com",
-      "category": "957a"
-    },
-    {
-      "id": "eb1e",
-      "name": "Drew Hill",
-      "email": "zewaco@mailinator.com",
-      "category": "957a"
-    },
-    {
-      "id": "230d",
-      "name": "Judah Waller",
-      "email": "zozazuval@mailinator.com",
-      "category": "957a"
-    },
-    {
-      "id": "e858",
-      "name": "Jack Gillespie",
-      "email": "rome@mailinator.com",
-      "category": "957a"
-    },
-    {
-      "id": "6b02",
-      "name": "Karly Clayton",
-      "email": "mizi@mailinator.com",
-      "category": "bcf6"
-    },
-    {
-      "id": "06ca",
-      "name": "Cailin Huff",
-      "email": "rozami@mailinator.com",
-      "category": "9048"
-    },
-    {
-      "id": "09db",
-      "name": "Ezekiel Walters",
-      "email": "rafadafeco@mailinator.com",
-      "category": "9048"
-    },
-    {
-      "id": "51f6",
-      "name": "Farida M parasara",
-      "email": "farida@gmail.com",
-      "category": "9048"
-    },
-    {
-      "id": "e39f",
-      "name": "Farid Parasara",
-      "email": "parasarafarid@gmail.com",
-      "category": "a7b9"
-    },
-    {
-      "id": "7de0",
-      "name": "Keefe Joyce",
-      "email": "mesoxe@mailinator.com",
-      "category": "9048"
-    },
-    {
-      "id": "1908",
-      "name": "jonny",
-      "email": "badiaslam78@gmail.com",
-      "category": "957a"
-    },
-    {
-      "id": "385a",
-      "name": "Francesca Evans",
-      "email": "noxulyjo@mailinator.com",
-      "category": "4f22"
+      "id": "f7a9",
+      "name": "Nicole Dickson",
+      "email": "junojoqun@mailinator.com",
+      "category": "957a",
+      "radio": "active",
+      "option": "boat",
+      "image": "https://imageupscaler.com/wp-content/uploads/2024/07/deblured-cutty-fox.jpg"
     }
   ],
   "categories": [
@@ -107,10 +43,6 @@
     {
       "id": "408f",
       "name": "Keybord"
-    },
-    {
-      "id": "4f22",
-      "name": "Mouse"
     }
   ]
 }

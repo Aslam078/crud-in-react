@@ -15,9 +15,12 @@ function Table() {
        <table className="table ">
   <thead>
     <tr>
+      <th>Photo</th>
     <th>Name</th>
       <th>Email</th>
       <th>option</th>
+      <th>Status</th>
+      <th>vehicle</th>
       <th>Action</th>
     </tr>
   </thead>

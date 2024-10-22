@@ -13,6 +13,9 @@ function Form() {
     name: "",
     email: "",
     category: "",
+    option:[],
+    radio:[],
+    image:""
   })
 
   
@@ -21,15 +24,14 @@ function Form() {
     // console.log(name, value);
     setDetails((prev) => {
       return{...prev, [name]:value}
-    });
+    })
   }
-  
 
   const checkEmailExists = async (email) => {
     try {
       const response = await axios.get(`http://localhost:3000/users?email=${email}`);
-      console.log("respone =====".response);
-      return response
+      // console.log("respone =====",response);
+      return response.data.length > 0;
       
     } catch (error) {
       console.error("Error checking email:", error);
@@ -70,7 +72,7 @@ function Form() {
       .then((res) => {
         toast.info('Data Store Succesfully', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -90,7 +92,7 @@ function Form() {
     <div className='container'>
       <FormNav />
       <div className='d-flex justify-content-center  align-items-center'>
-        <form onSubmit={submithandle} className='d-flex flex-column mt-5'>
+        <form onSubmit={submithandle} className='d-flex gap-1 flex-column mt-5'>
           <div className="mb-3 d-flex gap-3">
             <label >Name:</label>
             <input type="text" name='name'  value={details.name} onChange={onchangehandle} className="form-control" required />
@@ -100,6 +102,23 @@ function Form() {
             <input type="email" name='email' value={details.email} onChange={onchangehandle} className="form-control" required />
           </div>
 
+          <div className="mb-3 d-flex gap-3 ">
+                    <label>vehicle:</label>
+                    <label  className="form-check-label" htmlFor='checkbox-one'>car</label>
+                    <input type="checkbox" id='checkbox-one'  name='option' value={'car'} onChange={onchangehandle} />
+                    <label htmlFor='checkbox-two'>bike</label>
+                    <input type="checkbox" id='checkbox-two' name='option' value={'bike'}  onChange={onchangehandle} />
+                    <label htmlFor='checkbox-three'>boat</label>
+                    <input type="checkbox" id='checkbox-three' name='option' value={'boat'}  onChange={onchangehandle} />
+                </div>
+
+          <div className="mb-3 d-flex gap-3 ">
+            <label>Option:</label>
+            <input type="radio" id='radio-one'  name='radio' value={details.radio + 'active'} onChange={onchangehandle} />
+            <label htmlFor='radio-one'>active</label>
+            <input type="radio" id='radio-two' name='radio' value={details.radio + 'inactive'}  onChange={onchangehandle} />
+            <label htmlFor='radio-two'>inactive</label>
+          </div>
 
           <div className='d-flex gap-1 mb-2'>
 
@@ -115,7 +134,13 @@ function Form() {
             </select>
 
           </div>
-          <button className='btn btn-info' type='submit'>Submit</button>
+
+        <div className='d-flex gap-4 mb-3'>
+          <label>Photo:</label>
+          <input type="file" name='image' onChange={onchangehandle  } value={details.image} />
+        </div>
+
+          <button className='btn btn-info text-white' type='submit'>Submit</button>
         </form>
       </div>
     </div >

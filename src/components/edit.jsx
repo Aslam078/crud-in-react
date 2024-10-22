@@ -7,18 +7,18 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Category from './category';
-import { toast } from 'react-toastify';
+import { Bounce, toast } from 'react-toastify';
 
 function Edit() {
     const navigate = useNavigate();
     let { id } = useParams();
     console.log("params id", id);
 
-    const [user, setUser] = useState({ name: '', email: '', category: '' })
+    const [user, setUser] = useState({ name: '', email: '', category: '', option:[],radio:'' })
 
     const onchangehandle = (e) => {
 
-        const { name, value } = e.target
+        const { name, value, checked } = e.target
         setUser(prev => ({
             ...prev,
             [name]: value
@@ -57,7 +57,17 @@ function Edit() {
         console.log("edit username", user);
         EditData();
         navigate('/')
-        toast.success("data stored success");
+        toast.success("data stored success",{
+            position: "top-left",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
 
     } 
 
@@ -78,6 +88,24 @@ function Edit() {
                         <label>Email:</label>
                         <input type="email" name='email' value={user.email} onChange={onchangehandle} className="form-control" />
                     </div>
+
+                <div className="mb-3 d-flex gap-3 "> 
+                    <label>vehicle:</label>
+                    <input type="checkbox" id='checkbox-one'  name='option' value={'car'} checked={user.option === 'car'} onChange={onchangehandle} />
+                    <label htmlFor='checkbox-one'>car</label>
+                    <input type="checkbox" id='checkbox-two' name='option' value={'bike'} checked={user.option === 'bike'}  onChange={onchangehandle} />
+                    <label htmlFor='checkbox-two'>bike</label>
+                    <input type="checkbox" id='checkbox-three' name='option' value={'boat'} checked={user.option === 'boat'}  onChange={onchangehandle} />
+                    <label htmlFor='checkbox-three'>boat</label>
+                </div>
+
+          <div className="mb-3 d-flex gap-3 ">
+            <label>Option:</label>
+            <input type="radio" id='radio-one'  name='radio' value={'active'} checked={user.radio === 'active'} onChange={onchangehandle} />
+            <label htmlFor='radio-one'>active</label>
+            <input type="radio" id='radio-two' name='radio' value={'inactive'} checked={user.radio === 'inactive'}  onChange={onchangehandle} />
+            <label htmlFor='radio-two'>inactive</label>
+          </div>
 
                     <div className='d-flex gap-1 mb-2 w-100'>
 
