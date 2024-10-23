@@ -14,11 +14,34 @@ function Edit() {
     let { id } = useParams();
     console.log("params id", id);
 
-    const [user, setUser] = useState({ name: '', email: '', category: '', option:[],radio:'' })
+    const [user, setUser] = useState({ name: '', email: '', category: '', option:[],radio:'', image:'' })
+
+    const imgchange = async(e) => {
+        const file = e.target.files[0];
+        const base64 = await ConvertToBase(file);
+        setUser ((prev) => ({
+            ...prev,
+            image: base64
+        }))
+    }
+
+    const ConvertToBase = (file) => {
+        return new Promise ((resolve,reject) => {
+            const fileread = new FileReader();
+            fileread.readAsDataURL(file)
+
+            fileread.onload = () => {
+                resolve(fileread.result)
+            }
+            fileread.onerror = (error) => {
+                reject(error);
+            }
+        })
+    }
 
     const onchangehandle = (e) => {
 
-        const { name, value, checked } = e.target
+        const { name, value } = e.target
         setUser(prev => ({
             ...prev,
             [name]: value
@@ -79,7 +102,7 @@ function Edit() {
             <Link  to={"/"} className='btn btn-danger'>Home Page</Link>
         </nav>
             <div className='d-flex justify-content-center  align-items-center'>
-                <form onSubmit={submithandle} className='d-flex flex-column   align-items-center mt-5'>
+                <form onSubmit={submithandle} className='d-flex gap-1 flex-column mt-5 w-50'>
                     <div className="mb-3 d-flex gap-3">
                         <label >Name:</label>
                         <input type="text" name='name' value={user.name} onChange={onchangehandle} className="form-control" />
@@ -120,6 +143,12 @@ function Edit() {
 
                         </select>
                     </div>
+
+                    <div className='d-flex gap-2'>
+                        <label>Change image:</label>
+                        <input type="file" name="image" onChange={imgchange}   />
+                    </div>
+
                     <button className='btn btn-info' type='submit'>Submit</button>
                 </form>
             </div>
