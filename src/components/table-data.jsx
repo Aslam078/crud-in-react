@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { toast,Bounce } from 'react-toastify';
 
 function Userdata() {
-    const { id } = useParams();
     const [user,setUser] = useState([])
-    const [category,setCategory] = useState([])
    
 
     useEffect(()=> {

@@ -15,17 +15,41 @@ function Form() {
     category: "",
     option:[],
     radio:[],
-    image:""
+    image:''
   })
 
+  const uploadimg = async(e) => {
+    const file = e.target.files[0];
+    const base64 = await convertbase(file)
+    setDetails((prev) => ({
+      ...prev,
+      image:base64
+    }))
+    // console.log(e.target.files);
+    
+  }
+
+  const convertbase = (file) => {
+    return new Promise ((resolve,reject) => {
+      const filereader = new FileReader();
+      filereader.readAsDataURL(file)
+
+      filereader.onload = () => { 
+        resolve(filereader.result)
+      }
+      filereader.onerror = (error) => {
+        reject(error);
+      }
+    });
+  }
   
   const onchangehandle = (e) => {
     const { name, value } = e.target
     // console.log(name, value);
-    setDetails((prev) => {
-      return{...prev, [name]:value}
-    })
-  }
+      setDetails((prev) => {
+        return{...prev, [name]:value}
+      })
+    }
 
   const checkEmailExists = async (email) => {
     try {
@@ -82,8 +106,6 @@ function Form() {
           transition: Bounce,
           });
       })
-
-      // Catch errors if any
       .catch((err) => {});
       navigate('/');
   }
@@ -137,7 +159,7 @@ function Form() {
 
         <div className='d-flex gap-4 mb-3'>
           <label>Photo:</label>
-          <input type="file" name='image' onChange={onchangehandle  } value={details.image} />
+          <input type="file" name='image' onChange={uploadimg} />
         </div>
 
           <button className='btn btn-info text-white' type='submit'>Submit</button>
