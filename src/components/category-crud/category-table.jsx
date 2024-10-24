@@ -13,16 +13,16 @@ function CategoryTable() {
 
 
   return (
-    <div className='container'>
+    <div className='container w-50'>
       <Catnavbar />
       <table className="table table-striped">
         <thead>
-          <tr>
+          <tr className="text-center">
             <th>Category</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
 
           <Categorytabledata />
 

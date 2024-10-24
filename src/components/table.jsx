@@ -12,7 +12,7 @@ function Table() {
   return (
      <div className='container'>
       <Navbar />
-       <table className="table ">
+       <table className="table table-striped table-hover">
   <thead>
     <tr>
       <th>Photo</th>

@@ -12,7 +12,7 @@ function Form() {
   const [details, setDetails] = useState({
     name: "",
     email: "",
-    category: "",
+    category: [],
     option:[],
     radio:[],
     image:''

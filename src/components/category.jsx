@@ -1,19 +1,22 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router';
 
 function Category() {
-    // const {id} = useParams();
+    const { id } = useParams();
     // console.log("params", id);
     
     const [category, setCategory] = useState([]);
 
     useEffect(()=> {
         axios.get(`http://localhost:3000/categories`).then(res => {
-            // console.log("===>", res.data)
-            setCategory(res.data)
-        })
-    },[]);
+          const categories = res.data.filter(d => d.is_deleted !== 1)
+          setCategory(categories) 
+          console.log("res ===>", categories)
+            
+          })
+    },[id]);
 
     const changehandle = (e) => {
       const {name,value} = e.target.value

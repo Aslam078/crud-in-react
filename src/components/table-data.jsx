@@ -8,7 +8,7 @@ function Userdata() {
    
 
     useEffect(()=> {
-      console.log('test');
+      // console.log('test');
       
      const usersPromise =  axios.get("http://localhost:3000/users")
     const categoriesPromise =  axios.get("http://localhost:3000/categories")
@@ -17,7 +17,8 @@ function Userdata() {
           // console.log();
           const data = [];
           usersResponce.data.forEach((user)=>{
-          const categoryName= categoriesResponce.data.find((category)=> category.id == user.category)
+          const categoryName= categoriesResponce.data.find((category)=> category.id == user.category )
+
           if (categoryName) {
             data.push({...user,category:categoryName.name})
           }else{

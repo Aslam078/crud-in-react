@@ -8,6 +8,7 @@ import { BrowserRouter as Router , Route, Routes} from "react-router-dom"
 import CategoryTable from './components/category-crud/category-table';
 import CategoryForm from './components/category-crud/category-form';
 import CategoryEdit from './components/category-crud/category-edit';
+import TrashTable from './components/category-crud/trash-table';
 // import Editdata from './Components/Editdata';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route exact path='/CategoryTable' element={<CategoryTable />} />   
       <Route exact path='/CategoryTable/Form' element={<CategoryForm />} />   
       <Route exact path='/CategoryTable/Edit-Category/:id' element={<CategoryEdit />} />   
+      <Route exact path='/CategoryTable/Trash' element={<TrashTable />} />   
       </Routes>
     </Router>
     </>

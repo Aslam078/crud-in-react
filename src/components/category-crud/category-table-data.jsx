@@ -8,17 +8,34 @@ import { Bounce, toast } from 'react-toastify';
 function Categorytabledata() {
     const [category, setCategory] = useState([]);
 
-    useEffect(()=> {
-        axios.get("http://localhost:3000/categories").then(res => {
-            console.log("===>", res.data)
-            setCategory(res.data)
-        })
-    },[]);
+    const fetchTable =()=>{
 
-    const deletecategory = async(id) => {
-        await axios.delete(`http://localhost:3000/categories/${id}`).then(res => console.log(res)).catch(err => console.log(err));
-        const delet = category.filter(data => data.id !== id);
-        setCategory(delet)
+
+        axios.get(`http://localhost:3000/categories`).then(res => {
+            // console.log("===>", res.data)
+            const del = res.data.filter(d => d.is_deleted !== 1)
+            console.log("=== del", del);
+            setCategory(del)
+        }).catch(err => {});
+
+    }
+        useEffect(() => {
+            fetchTable();
+    }, []);
+
+    const deletecategory = (id) => {
+        const delet = {
+            "is_deleted": 1
+        }
+
+
+         axios.patch(`http://localhost:3000/categories/${id}`, delet)
+                .then(res => {
+                    fetchTable();
+                    console.log("==== del", res)
+                })
+                .catch(err => console.log(err));
+
         toast.error('Category deleted', {
             position: "top-left",
             autoClose: 3000,
@@ -29,29 +46,32 @@ function Categorytabledata() {
             progress: undefined,
             theme: "light",
             transition: Bounce,
-            });
-          
+        });
+
     }
+
 
     const setcategory = () => {
-        const datas = category.map((data,id) => (
-            <tr key={id}>
-                <td>{data.name}</td>
-                <td className='d-flex gap-3'>
-                    <Link className='btn btn-outline-success' to={`/CategoryTable/Edit-Category/${data.id}`}>Edit</Link>
-                    <button className='btn btn-outline-danger' onClick={() => deletecategory(data.id)}>Delete</button>
-                </td>
-            </tr>
-        ))
-        return datas
+        return category.map((data) => {
+            const { name, id } = data;
+
+
+            return (
+                <tr className='text-center' key={id}>
+                    <td className='text-center'>{name}</td>
+                    <td className='text-center d-flex justify-content-center gap-3'>
+                        <Link className='btn btn-outline-success' to={`/CategoryTable/Edit-Category/${id}`}>Edit</Link>
+                        <button className='btn btn-outline-danger' onClick={() => deletecategory(id)}>Delete</button>
+                    </td>
+                </tr>
+            )
+        })
     }
 
+    return (
 
-  return (
-
-    setcategory()
-    
-  )
+        setcategory()
+    )
 }
 
 export default Categorytabledata

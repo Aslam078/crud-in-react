@@ -73,4 +73,10 @@ body{
   font-weight: 400;
   font-size: large;
   font-style: normal;
+  /* background-color: cornsilk; */
+}
+
+*{
+  margin: 0;
+  padding: 0;
 }

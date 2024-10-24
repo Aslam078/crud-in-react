@@ -8,18 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-    <ToastContainer
-      // position="top-left"
-      // autoClose={3000}
-      // hideProgressBar={false}
-      // newestOnTop={false}
-      // closeOnClick
-      // rtl={false}
-      // pauseOnFocusLoss
-      // draggable
-      // pauseOnHover
-      // theme="colored"
-      // transition:Bounce
-/>
+    <ToastContainer/>
 </React.StrictMode>
 )

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
 
 function CategoryForm() {
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState({name:''})
     const navigate = useNavigate();
 
     const onchangehandle = (e) => {
@@ -14,8 +14,6 @@ function CategoryForm() {
           return{...prev, [name]:value}
         });
       }
-
-      
 
 
       const submithandle = (e) => {

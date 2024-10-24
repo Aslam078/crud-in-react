@@ -9,6 +9,7 @@ function Catnavbar() {
            <div className='d-flex gap-3'>
            <Link  to={"/"} className='btn btn-info'>GO-TO USER</Link>
            <Link  to={"/CategoryTable/Form"} className='btn btn-success'>ADD</Link>
+           <Link  to={"/CategoryTable/Trash"} className='btn btn-danger'>Trash</Link>
            </div>
      </nav>
   )

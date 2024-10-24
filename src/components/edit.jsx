@@ -1,5 +1,4 @@
 import React from 'react'
-import FormNav from './element/formnav'
 import { useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router';
@@ -12,9 +11,9 @@ import { Bounce, toast } from 'react-toastify';
 function Edit() {
     const navigate = useNavigate();
     let { id } = useParams();
-    console.log("params id", id);
+    // console.log("params id", id);
 
-    const [user, setUser] = useState({ name: '', email: '', category: '', option:[],radio:'', image:'' })
+    const [user, setUser] = useState({ name: '', email: '', category: [], option:[],radio:'', image:'' })
 
     const imgchange = async(e) => {
         const file = e.target.files[0];
@@ -69,7 +68,7 @@ function Edit() {
 
 
     const EditData = async () => {
-        console.log("fdslfsh");
+        // console.log("fdslfsh");
         await axios.patch(`http://localhost:3000/users/${id}`, user)
 
     }
@@ -79,7 +78,7 @@ function Edit() {
         console.log("edit data", e);
         console.log("edit username", user);
         EditData();
-        navigate('/')
+        navigate('/');
         toast.success("data stored success",{
             position: "top-left",
             autoClose: 2000,
